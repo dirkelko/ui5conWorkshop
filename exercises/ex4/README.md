@@ -1,10 +1,9 @@
 # Exercise 4 - Adding a filter field to the value help dialog
 
-In this exercise you'll enhance the application with a real value help dialog by adding this in the view.
-
+In the case of larger data sets the value help dialog with the list of buildings becomes much more useful if we can filter the list based on the building's properties. We enhance the dialog with a filter bar containing a filter field to select the country where we want to select a building from. 
 
 ## Exercise 4.1 - Add a filter bar with filter field to the view
-The value help dialog with the list of buildings becomes much more useful if we can filter the list based on the building's properties. We enhance the dialog with a filter bar containing a filter field to select the country where we want to select a building from. The filter bar is again a pretty complex control tree which contains the filter field with value help specific wrapper controls. To maximize the comfort, the filter field has also a type ahead drop down list box which contains the list of available countries.
+The filter bar is again a pretty complex control tree which contains the filter field with value help specific wrapper controls. To maximize the comfort, the filter field has also a type ahead suggestion list which contains the list of available countries. Add a filter bar with a filter field to the value help dialog. Note that this filter field has its own value help (which uses the base value help delegate) for a suggestion list using a `sap.m.Table` control to display the list of available countries. 
 
 ***valuehelp/webapp/view/Building.view.xml***
 
@@ -12,23 +11,40 @@ The value help dialog with the list of buildings becomes much more useful if we 
 ...
 <mdc:dialog>
     <mdcv:Dialog id="diaSelectBuilding" title="SAP Buildings">
-        <mdcvc:MDCTable keyPath="id" id="mdcvcTableBuildings" descriptionPath="name" >
+        <mdcvc:MDCTable 
+            keyPath="id" 
+            id="mdcvcTableBuildings" 
+            descriptionPath="name" >
             <mdcvc:filterBar>
                 <vhfb:FilterBar 
-                    id="FH1-Dialog-MDCTable-default-FB" 
+                    id="fbSelectBuildingDialog" 
                     liveMode="true" 
                     delegate="{name: 'ui5con/vhdemo/delegate/FilterBar.delegate', payload: {}}" >
                     <vhfb:filterItems>
-                        <mdc:FilterField id="ffCountry" label="Country" dataType= "String" display="Description" propertyKey="buildingCountry" conditions= "{$filters>/conditions/buildingCountry}" fieldHelp= "vhCountry">
+                        <mdc:FilterField 
+                            id="ffCountry" 
+                            label="Country" 
+                            dataType= "String" 
+                            display="Description" 
+                            propertyKey="buildingCountry" 
+                            conditions= "{$filters>/conditions/buildingCountry}" 
+                            valueHelp= "vhCountry">
                             <mdc:dependents>
-                                <mdc:ValueHelp id="vhCountry" delegate="{name: 'sap/ui/mdc/ValueHelpDelegate', payload: {}}">
+                                <mdc:ValueHelp 
+                                    id="vhCountry" 
+                                    delegate="{name: 'sap/ui/mdc/ValueHelpDelegate', payload: {}}">
                                     <mdc:typeahead>
                                         <mdcv:Popover title="Country Selection">
-                                            <mdcvc:MTable id="countryTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">
-                                                <Table  id="ddListCountries" 
-                                                        items='{path : "facilities>/countries", sorter: { path: "name", ascending: "true" }  }' 
-                                                        width="20rem" 
-                                                        mode="MultiSelect">
+                                            <mdcvc:MTable 
+                                                id="countryTypeAhead" 
+                                                keyPath="id" 
+                                                descriptionPath="name" 
+                                                filterFields="*id,name*">
+                                                <Table  
+                                                    id="ddListCountries" 
+                                                    items='{path : "facilities>/countries", sorter: { path: "name", ascending: "true" }  }' 
+                                                    width="20rem" 
+                                                    mode="MultiSelect">
                                                     <columns>
                                                         <Column/>
                                                     </columns>
@@ -59,8 +75,8 @@ The value help dialog with the list of buildings becomes much more useful if we 
 ```
 
 ## Exercise 4.2 - Implement your own filter bar delegate
-Like for the MDC Table we also have to provide a filter bar delegate for the MDC FilterBar to describe the property infos of our model. 
-Create in the **delegate** folder of your project a new file **FilterBar.delegate.js** and implement the `fetchProperties` method to tell the filter bar the metadata of the `countryId` of our building model has.
+Like for the `sap.ui.mdc.Table` we also have to provide a filter bar delegate for the `sap.ui.mdc.FilterBar` to describe the property infos of our model. 
+Create in the ***delegate*** folder of your project a new file ***FilterBar.delegate.js*** and implement the `fetchProperties` method to tell the filter bar the metadata of the `countryId` property of our building model.
 
 ***valuehelp/webapp/delegate/FilterBar.delegate.js***
 

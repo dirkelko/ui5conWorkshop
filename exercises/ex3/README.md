@@ -3,15 +3,15 @@
 In this exercise you'll enhance the application with a value help dialog by adding this to the view. 
 
 ## Exercise 3.1 - Add a value help dialog to the view
-In addition to the type ahead functionality we want to have a more complex dialog which allows to select a building. In the first step we just want to have a table which displays the list of buildings with a few more columns than the drop down listbox of the type ahead. Add the code for the dialog below the typeahed control into the view. Also the value help dialog consists of several nested controls. The buildings are displayed in the new MDC Table. Here we choose the grid table for this task.
+In addition to the type ahead functionality we want to have a more complex dialog which allows to select a building. In the first step we just want to see a table which displays the list of buildings with a few more columns than the suggestion list of the last step. Add the code for the dialog below the `mdc:typeahed` control into the view. Also the value help dialog consists of several nested controls. The buildings are displayed in the new `sap.ui.mdc.Table`. It can contain different kinds of inner tables, here we choose the grid table for this task.
 
 ***valuehelp/webapp/view/Building.view.xml***
 
-````xml
+```xml
 <mdc:Field 
     id="fldBuilding" 
     value="{path: 'id', type: 'sap.ui.model.type.String', mode: 'OneWay'}"
-    fieldHelp="vhBuildingId" 
+    valueHelp="vhBuildingId" 
     display="Description" 
     editMode="Editable" 
     width="20rem"
@@ -63,16 +63,16 @@ In addition to the type ahead functionality we want to have a more complex dialo
     </mdc:dependents>
 </mdc:Field>        
 
-````
+```
 
 ## Exercise 3.2 - Add a Table delegate for your application
 
-The functionality of the MDC controls like the MDC Table is steered by so called delegates. While the framework contains already basis delegates for the MDC controls (like the `sap/ui/mdc/ValueHelpDelegate` used in the ValueHelp tag in our example), protocol and data specific functionality has to be implemented in your own delegates which inherit from the base delegates. In our case we have to provide our own Table delegate to tell the mdc table which data it should be bound to by implementing the `updateBindingInfo` method which provides the `collectionPath` and the structure of the data by implementing the `fetchProperties` method. 
-Create a new folder **delegate** under the webapp folder and create a new file **Table.delegate.js** in this folder:
+The functionality of the `sap.ui.mdc` controls like the `sap.ui.mdc.Table` is steered by so called delegates. While the framework contains already basis delegates for the `sap.ui.mdc` controls (like the `sap/ui/mdc/ValueHelpDelegate` used in the ValueHelp tag in our example), protocol and data specific functionality has to be implemented in your own delegates which inherit from the base delegates. In our case we have to provide our own table delegate to tell the `sap.ui.mdc.Table` which data it should be bound to by implementing the `updateBindingInfo` method. This method provides the `collectionPath`. The structure of the data is defined by implementing the `fetchProperties` method. 
+Create a new folder ***delegate*** under the ***webapp*** folder and create a new file ***Table.delegate.js*** in this folder:
 
 ***valuehelp/webapp/delegate/Table.delegate.js***
 
-````js
+```js
 sap.ui.define([
 	"sap/ui/mdc/TableDelegate"
 ], function (
@@ -128,7 +128,7 @@ sap.ui.define([
 
 	return MyTableDelegate;
 });
-````
+```
 ## Summary
 
 You've successfully accomplished [Exercise 3 - Create a value help dialog with a table](#exercise-3---create-a-value-help-dialog-with-a-table)!

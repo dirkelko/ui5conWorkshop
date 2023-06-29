@@ -1,11 +1,11 @@
-# UI5CON 2023 MDC ValueHelp
+# Metadata-driven Value Help for JSON Models
 ## Description
 
-This repository contains the material for the UI5Con Workshop ** MDC ValueHelp**.
+This repository contains the material for the UI5Con Workshop **Metadata-driven Value Help for JSON Models**.
 
 ## Overview
 
-In this session, you will learn about developing a value help scenario with the SAP UI5 MDC library for a simple JSON model. We start with an input field and a form which displays the properties of an SAP building if the ID of the building has been entered into the input field.
+In this session, you will learn about developing a value help scenario with the new **sap.ui.mdc** library for a simple JSON model. We start with an input field and a form which displays the properties of an SAP building if the ID of the building has been entered into the input field.
 
 ## Exercises
 - [Exercise 1 - Clone the start Project](exercises/ex1/README.md)

@@ -9,10 +9,7 @@ The first version requires that the user enters a valid buidling id in the input
 
 ## Prerequisites
 
-You need **node.js** (e.g. the latest stable LTS version), **git** and you need the **SAP UI5 runtime tools** which can be installed globally on your machine with **npm**
-```
-npm install --global @ui5/cli
-```
+You need **node.js** (e.g. the latest stable LTS version) with **npm** (version 8 or 9) and **git**.
 
 ## Exercise 1.1 - Clone the template project
 
@@ -29,7 +26,7 @@ git clone https://github.com/dirkelko/ui5comWorkshop.git
     npm install
 ```
 ```
-    ui5 serve
+    npm run start
 ```
 The application will now run at http://localhost:8080
 

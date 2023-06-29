@@ -22,7 +22,7 @@ npm i -D ui5-tooling-modules ui5-middleware-servestatic
 },
 "ui5": {
     "dependencies": [
-      "ui5-middleware-livereload"
+      "ui5-middleware-livereload",
       "ui5-tooling-modules",
       "ui5-middleware-servestatic"
     ]

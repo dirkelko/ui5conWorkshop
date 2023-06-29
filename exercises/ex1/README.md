@@ -20,7 +20,7 @@ After completing these steps you have the start project which we will enhance wi
 
 1. Clone the project.
 ```
-git clone git@github.wdf.sap.corp:d022361/ValueHelp_workshop.git
+git clone https://github.com/dirkelko/ui5comWorkshop.git
 ```
 2. Open it with your development environment (e.g. Visual Studio Code) and go to the **template/vhfacilities** folder.
 3. Open a terminal in this folder.

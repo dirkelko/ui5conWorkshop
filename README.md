@@ -1,4 +1,4 @@
-# ValueHelp_workshop
+# UI5CON 2023 MDC ValueHelp
 ## Description
 
 This repository contains the material for the UI5Con Workshop ** MDC ValueHelp**.

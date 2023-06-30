@@ -1,12 +1,12 @@
 # Exercise 8 - Implementing custom content for the value help dialog
 
-In this exercise we'll enhance our application with a brand new data-visualization based on https://globe.gl/.
+In this exercise we'll enhance our application with a brand new data visualization based on https://globe.gl/.
 
 
 
 ## Exercise 8.1 - Enhance your projects capabilities
 
-In this step we want to add the functionality to access node modules and being able to serve static files to our project.
+In this step we want to add the functionality to access node modules and be able to serve static files to our project.
 
 ##### Install the following NPM dependencies:
 
@@ -291,6 +291,6 @@ formatFacilityAsHTMLMarker: function (aFacilityContexts) {
 ## Exercise 8.5 - Check the results
 
 
-If everything went as planned, you should now be able to see your new visualization, when opening the ValueHelp dialog. Clicking a marker should color it orange and pressing 'OK' right after should change the value in the Field accordingly.
+If everything went as planned, you should now be able to see your new visualization, when opening the ValueHelp dialog. Clicking a marker should color it orange and pressing 'OK' right after should change the value in the field accordingly.
 
 ![alt text](./preview.png "Title")

@@ -1,10 +1,11 @@
 # Exercise 6 - Further enhance the value help dialog
 
-In this exercise we enhance the value help dialog with another filter field for the region and we generalize the value help delegate in way that we don't hard code the relationship between region, country and location but we declare this relationship in the XML view by using the so called payload.
+In this exercise we enhance the value help dialog with another filter field for the region and we generalize the value help delegate in way that we don't hard code the relationship between region, country and location but we declare this relationship in the XML view by using the so-called payload.
 
-## Exercise 6.1 - Enhance the filter field delegate with the meta data for regions
+## Exercise 6.1 - Enhance the filter field delegate with the metadata for regions
 
-Since we use now also the region data, we have to enhance the filter bar delegate method ``fetchProperties``with the meta data informations for the region property.
+Since we now also use the region data, we have to enhance the filter bar delegate method ``fetchProperties``with the metadata informations for the region property.
+
 **_valuehelp/webapp/delegate/FilterBar.delegate.js_**
 
 ```javascript
@@ -40,9 +41,9 @@ Since we use now also the region data, we have to enhance the filter bar delegat
 
 ## Exercise 6.2 - Add a filter field for the region to the view
 
-Add a new fikter field with a value help for the region to the filter bar in the `Building.view.xml`view.
-Also make sure to define your own value help delegate `ui5con/vhdemo/delegate/ValueHelp.delegate`for all three filter fields, because we have to implement the relationship between them in the value help delegate.
-Add a payload to each value help delegate for each filter field. The payload can be an arbitrary json object which is used in our case to describe the dependency between the conditions of the filter fields, for example that a selected `buildingRegion` should set the filter for the property `RegionId` of the country and location filter fields.
+Add a new filter field with a value help for the region to the filter bar in the `Building.view.xml`view.
+Also make sure you define your own value help delegate `ui5con/vhdemo/delegate/ValueHelp.delegate`for all three filter fields, because we have to implement the relationship between them in the value help delegate.
+Add a payload to each value help delegate for each filter field. The payload can be an arbitrary json object which is used in our case to describe the dependency between the conditions of the filter fields, for example, that a selected `buildingRegion` should set the filter for the property `RegionId` of the country and location filter fields.
 
 **_valuehelp/webapp/view/Building.view.xml_**
 
@@ -140,9 +141,9 @@ Add a payload to each value help delegate for each filter field. The payload can
 ...
 ```
 
-## Exercise 6.2 - Adapt the value help delegate to use the payload data
+## Exercise 6.3 - Adapt the value help delegate to use the payload data
 
-Setting the filters for the filter fields suggestion lists has to be impolemented in the `getFilterConditions` method of the value help delegate. Since we now define this with the help of the payload in the XML view we don't have to hard code this behavior for regions, countries, and locations but we retrieve the payload data from the view and create the filters based on that data. With this the value help delegate could also be used for other kinds of data.
+Setting the filters for the filter fields suggestion lists has to be implemented in the `getFilterConditions` method of the value help delegate. Since we now define this with the help of the payload in the XML view, we don't have to hard code this behavior for regions, countries, and locations but we retrieve the payload data from the view and create the filters based on that data. This way, the value help delegate could also be used for other kinds of data.
 
 **_valuehelp/webapp/delegate/ValueHelp.delegate.js_**
 

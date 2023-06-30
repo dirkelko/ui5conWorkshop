@@ -101,9 +101,9 @@ Add a second filter field for selecting the location after the filter field for 
 ...
 ```
 
-## Exercise 5.1 - Enhance the filter field delegate with the meta data for locations
+## Exercise 5.2 - Enhance the filter field delegate with the metadata for locations
 
-Since we use now also the country data, we have to enhance the filter bar delegate method ``fetchProperties`` with the meta data informations for the country property.
+Since we now also use the country data, we have to enhance the filter bar delegate method ``fetchProperties`` with the metadata information for the country property.
 
 **_valuehelp/webapp/delegate/FilterBar.delegate.js_**
 
@@ -131,11 +131,11 @@ Since we use now also the country data, we have to enhance the filter bar delega
 
 ```
 
-## Exercise 5.2 - Create a value help delegate to implement the filter conditions for the second filter field
+## Exercise 5.3 - Create a value help delegate to implement the filter conditions for the second filter field
 
-Create a new file ***ValueHelp.delegate.js*** in the ***delegate*** folder of your project and implement the ``getFilterCondition``method, which applies the filter setting of the country filter field to the location filter field drop down list box so that only locations of the selected countries are displayed.
+Create a new file ***ValueHelp.delegate.js*** in the ***delegate*** folder of your project and implement the ``getFilterCondition``method, that applies the filter setting of the country filter field to the locations suggestion list so that only locations of the selected countries are displayed.
 
-In this method we check that the currently used control is the filter field for the location. If this is the case we get the filter conditions of all other filters. In our case we retrive the ids (or technically the conditions containing ` "countryId" "EQ" "..." ` ) of the countries which have been selected in the country filter field. Based on this conditions we create a filter condition for the location's `countryId` property, which is applied to the suggestion list, narrowing down the list of locations belonging to the selected countries.
+In this method we check that the currently used control is the filter field for the location. If this is the case we get the filter conditions of all other filters. In our case we retrieve the IDs (or technically the conditions containing ` "countryId" "EQ" "..." ` ) of the countries which have been selected in the country filter field. Based on these conditions we create a filter condition for the location's `countryId` property, which is applied to the suggestion list, narrowing down the list of locations to the selected countries.
 
 ***valuehelp/webapp/delegate/ValueHelp.delegate.js***
 

@@ -3,7 +3,7 @@
 In the case of larger data sets the value help dialog with the list of buildings becomes much more useful if we can filter the list based on the building's properties. We enhance the dialog with a filter bar containing a filter field to select the country where we want to select a building from. 
 
 ## Exercise 4.1 - Add a filter bar with filter field to the view
-The filter bar is again a pretty complex control tree which contains the filter field with value help specific wrapper controls. To maximize the comfort, the filter field has also a type ahead suggestion list which contains the list of available countries. Add a filter bar with a filter field to the value help dialog. Note that this filter field has its own value help (which uses the base value help delegate) for a suggestion list using a `sap.m.Table` control to display the list of available countries. 
+The filter bar is again a pretty complex control tree which contains the filter field with value-help-specific wrapper controls. For ease of use, the filter field has also a type-ahead suggestion list which contains the list of available countries. Add a filter bar with a filter field to the value help dialog. Note that this filter field has its own value help (which uses the base value help delegate) for a suggestion list using a `sap.m.Table` control to display the list of available countries. 
 
 ***valuehelp/webapp/view/Building.view.xml***
 
@@ -76,7 +76,7 @@ The filter bar is again a pretty complex control tree which contains the filter 
 
 ## Exercise 4.2 - Implement your own filter bar delegate
 Like for the `sap.ui.mdc.Table` we also have to provide a filter bar delegate for the `sap.ui.mdc.FilterBar` to describe the property infos of our model. 
-Create in the ***delegate*** folder of your project a new file ***FilterBar.delegate.js*** and implement the `fetchProperties` method to tell the filter bar the metadata of the `countryId` property of our building model.
+Create a new file ***FilterBar.delegate.js*** in the ***delegate*** folder of your project and implement the `fetchProperties` method to tell the filter bar the metadata of the `countryId` property of our building model.
 
 ***valuehelp/webapp/delegate/FilterBar.delegate.js***
 

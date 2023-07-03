@@ -12,12 +12,12 @@
     "lint": "eslint webapp"
   },
   "devDependencies": {
-    "@openui5/ts-types-esm": "1.115.0",
-    "@ui5/cli": "^2.14.14",
-    "eslint": "^8.27.0",
-    "ui5-middleware-livereload": "^0.7.0",
-    "ui5-middleware-servestatic": "^0.4.3",
-    "ui5-tooling-modules": "^0.9.11"
+    "@openui5/ts-types-esm": "1.115.1",
+    "@ui5/cli": "^3.3.1",
+    "eslint": "^8.44.0",
+    "ui5-middleware-livereload": "^0.8.3",
+    "ui5-middleware-servestatic": "^0.4.4",
+    "ui5-tooling-modules": "^0.9.12"
   },
   "ui5": {
     "dependencies": [
@@ -27,6 +27,6 @@
     ]
   },
   "dependencies": {
-    "globe.gl": "^2.28.4"
+    "globe.gl": "^2.28.5"
   }
 }

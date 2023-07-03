@@ -17,7 +17,7 @@ After completing these steps you have the start project has to be enhanced with 
 
 1. Clone the project.
 ```
-git clone https://github.com/dirkelko/ui5comWorkshop.git
+git clone https://github.com/dirkelko/ui5conWorkshop.git
 ```
 2. Open it with your development environment (e.g. Visual Studio Code) and go to the **template/vhfacilities** folder.
 3. Open a terminal in this folder.

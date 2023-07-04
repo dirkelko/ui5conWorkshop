@@ -55,7 +55,7 @@ Make sute to set the `name`property of all three value helps to your own `ui5con
         <vhfb:filterItems>
             <mdc:FilterField id="ffRegion" label="Region" dataType= "String" display="Description" propertyKey="buildingRegion" conditions= "{$filters>/conditions/buildingRegion}" valueHelp= "vhRegion">
                 <mdc:dependents>
-                    <mark><mdc:ValueHelp id="vhRegion" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}"></mark>
+                    <mdc:ValueHelp id="vhRegion" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}">
                         <mdc:typeahead>
                             <mdcv:Popover title="Region Selection">
                                 <mdcvc:MTable id="regionTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">

@@ -146,6 +146,7 @@ Setting the filters for the filter fields suggestion lists has to be implemented
 **_vhfacilities/webapp/delegate/ValueHelp.delegate.js_**
 
 ```javascript
+
 sap.ui.define([
 	"sap/ui/mdc/ValueHelpDelegate",
 	"sap/ui/mdc/p13n/StateUtil"

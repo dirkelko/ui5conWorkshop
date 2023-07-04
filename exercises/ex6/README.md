@@ -17,21 +17,18 @@ Since we now also use the region data, we have to enhance the filter bar delegat
 			label : "Region",
 			maxConditions: -1,
 			dataType : "sap.ui.model.type.String"
-			//typeConfig: MyFilterBarDelegate.getTypeUtil().getTypeConfig("String")
 		},{
 			name : "buildingCountry",
 			path : "countryId",
 			label : "Country",
 			maxConditions: -1,
 			dataType : "sap.ui.model.type.String"
-			//typeConfig: MyFilterBarDelegate.getTypeUtil().getTypeConfig("String")
 		},{
 			name : "buildingLocation",
 			path : "locationId",
 			label : "Location",
 			maxConditions: -1,
 			dataType : "sap.ui.model.type.String"
-			//typeConfig: MyFilterBarDelegate.getTypeUtil().getTypeConfig("String")
 		}])
 
 	};

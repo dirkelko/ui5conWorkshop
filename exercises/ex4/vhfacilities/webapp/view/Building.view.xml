@@ -26,7 +26,7 @@
                         <mdc:typeahead>
                             <mdcv:Popover title="Select Building">
                                 <mdcvc:MTable keyPath="id" descriptionPath="name" filterFields="*name,city*">
-                                    <Table  id="ddListBuildings" 
+                                    <Table  id="listBuildings" 
                                             items='{path : "facilities>/buildings" }' 
                                             width="30rem" 
                                             mode="SingleSelectMaster">

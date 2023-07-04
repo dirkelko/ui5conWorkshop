@@ -11,14 +11,14 @@ In addition to the type-ahead functionality we want to have a more complex dialo
 <mdc:Field 
     id="fldBuilding" 
     value="{path: 'id', type: 'sap.ui.model.type.String', mode: 'OneWay'}"
-    valueHelp="vhBuildingId" 
+    valueHelp="vhSelectBuilding" 
     display="Description" 
     editMode="Editable" 
     width="20rem"
     change=".onBuildingSelected">
     <mdc:dependents>
         <mdc:ValueHelp 
-            id="vhBuildingId"
+            id="vhSelectBuilding"
             delegate="{name: 'sap/ui/mdc/ValueHelpDelegate', payload: {}}"> 
             <mdc:typeahead>
             ....

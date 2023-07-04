@@ -13,19 +13,16 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	var MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
+	let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
 
-	// called when ValueHelp for one of the three FilterFields is called
 	MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
 
-		var oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
+		let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
 
-		//var oActiveControl = oConfig && oConfig.control || oContent.getControl();
-		//var oFilterBar = oActiveControl && oActiveControl.getParent();
-		var oFilterBar = oValueHelp.getParent().getParent();
+		let oFilterBar = oValueHelp.getParent().getParent();
 		return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
 
-			var oFilter = oState.filter;
+			let oFilter = oState.filter;
 
 			if (oContent.getControl().sId.endsWith("ffLocation")) {
 				if (oFilter.buildingCountry && oFilter.buildingCountry.length > 0) {

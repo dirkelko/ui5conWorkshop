@@ -5,21 +5,14 @@
  */
 
 sap.ui.define([
-	"sap/ui/mdc/TableDelegate",
-	"sap/ui/mdc/util/FilterUtil",
-	"sap/ui/model/Filter",
-	"sap/ui/core/Core"
+	"sap/ui/mdc/TableDelegate"
 ], function (
-	TableDelegate,
-	FilterUtil,
-	Filter,
-	Core
+	TableDelegate
 ) {
 	"use strict";
 
-	var MyTableDelegate = Object.assign({}, TableDelegate);
+	let MyTableDelegate = Object.assign({}, TableDelegate);
 
-	// this is the stuff which would be steered by annotiations in OData scenarios
 	MyTableDelegate.fetchProperties = function (oTable) {
 
 		return Promise.resolve([{
@@ -59,19 +52,6 @@ sap.ui.define([
 	MyTableDelegate.updateBindingInfo = function (oMDCTable, oBindingInfo) {
 		TableDelegate.updateBindingInfo.apply(this, arguments);
 		oBindingInfo.path = oMDCTable.getPayload().collectionPath;
-
-		/*var oFilter = Core.byId(oMDCTable.getFilter());
-		var aFilters = [];
-
-		var oFilterInfo = FilterUtil.getFilterInfo(
-			MyTableDelegate.getTypeUtil(),
-			oFilter.getConditions(),
-			oFilter.getPropertyInfoSet());
-
-		if (oFilterInfo.filters) {
-			aFilters.push(oFilterInfo.filters);
-		}
-		oBindingInfo.filters = new Filter(aFilters, true);*/
 
 	};
 

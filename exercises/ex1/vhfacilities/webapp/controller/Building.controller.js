@@ -6,14 +6,13 @@ sap.ui.define([
 
   return BaseController.extend("ui5con.vhdemo.controller.Main", {
     onInit: function () {
-      this.getView().bindElement({ path: "/buildings/60", model: "facilities" });
+      this.getView().bindElement({ path: "/buildings/59", model: "facilities" });
     },
     onBuildingSelected: function (oEvent) {
-      var selID = oEvent.getSource().getValue();
-      //var oModel = oEvent.getSource().getModel();
-      var oModel = this.getView().getModel("facilities");
-      var aBuildings = oModel.getObject("/buildings");
-      var selIndex = aBuildings.findIndex(building => building.id === selID);
+      let selID = oEvent.getSource().getValue();
+      let oModel = this.getView().getModel("facilities");
+      let aBuildings = oModel.getObject("/buildings");
+      let selIndex = aBuildings.findIndex(building => building.id === selID);
       this.getView().bindElement({ path: "/buildings/" + selIndex, model: "facilities" });
     },
     onGetCountryName: function (countryId) {

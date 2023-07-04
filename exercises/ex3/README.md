@@ -25,7 +25,10 @@ In addition to the type-ahead functionality we want to have a more complex dialo
             </mdc:typeahead>
             <mdc:dialog>
                 <mdcv:Dialog id="diaSelectBuilding" title="SAP Buildings">
-                    <mdcvc:MDCTable keyPath="id" id="mdcvcTableBuildings" descriptionPath="name" >
+                    <mdcvc:MDCTable 
+                        keyPath="id" 
+                        id="mdcvcTableBuildings" 
+                        descriptionPath="name" >
                         <mdc:Table id="mdcTableBuildings"
                             autoBindOnInit="true"
                             width="100%"

@@ -11,11 +11,11 @@ Add the namespaces needed for the value help and filter bar of the `sap.ui.mdc` 
 ***vhfacilities/webapp/view/Building.view.xml***
 ```xml
 <mvc:View
-	controllerName="ui5con.vhdemo.controller.Building"
+    controllerName="ui5con.vhdemo.controller.Building"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-	xmlns:mdc="sap.ui.mdc"
-	xmlns:mdct="sap.ui.mdc.table"
+    xmlns:mdc="sap.ui.mdc"
+    xmlns:mdct="sap.ui.mdc.table"
     xmlns:mdcv="sap.ui.mdc.valuehelp"
     xmlns:mdcvc="sap.ui.mdc.valuehelp.content"
     xmlns:vhfb="sap.ui.mdc.filterbar.vh">

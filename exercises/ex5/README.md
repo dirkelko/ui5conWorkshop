@@ -6,7 +6,7 @@ Even with the filter field for countries the list of buildings can still be pret
 
 Add a second filter field for selecting the location after the filter field for the country to the filter bar in our building view. The drop down list box of this second filter field should be filtered by the selected countries of the first field. To implement this behavior we need our own value help delegate for the location filter field. Therefore the delegate for the value help of this filter field is not the base delegate but our own `ui5con/vhdemo/delegate/ValueHelp.delegate`which will be created in the next step.
 
-***valuehelp/webapp/view/Building.view.xml***
+***vhfacilities/webapp/view/Building.view.xml***
 
 ```xml
 ...
@@ -105,7 +105,7 @@ Add a second filter field for selecting the location after the filter field for 
 
 Since we now also use the country data, we have to enhance the filter bar delegate method ``fetchProperties`` with the metadata information for the country property.
 
-**_valuehelp/webapp/delegate/FilterBar.delegate.js_**
+**_vhfacilities/webapp/delegate/FilterBar.delegate.js_**
 
 ```javascript
 ...
@@ -135,7 +135,7 @@ Create a new file ***ValueHelp.delegate.js*** in the ***delegate*** folder of yo
 
 In this method we check that the currently used control is the filter field for the location. If this is the case we get the filter conditions of all other filters. In our case we retrieve the IDs (or technically the conditions containing ` "countryId" "EQ" "..." ` ) of the countries which have been selected in the country filter field. Based on these conditions we create a filter condition for the location's `countryId` property, which is applied to the suggestion list, narrowing down the list of locations to the selected countries.
 
-***valuehelp/webapp/delegate/ValueHelp.delegate.js***
+***vhfacilities/webapp/delegate/ValueHelp.delegate.js***
 
 ```javascript
 sap.ui.define([

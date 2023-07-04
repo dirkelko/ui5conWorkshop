@@ -6,7 +6,7 @@ In this exercise we enhance the value help dialog with another filter field for 
 
 Since we now also use the region data, we have to enhance the filter bar delegate method ``fetchProperties``with the metadata informations for the region property.
 
-**_valuehelp/webapp/delegate/FilterBar.delegate.js_**
+**_vhfacilities/webapp/delegate/FilterBar.delegate.js_**
 
 ```javascript
 ...
@@ -45,7 +45,7 @@ Add a new filter field with a value help for the region to the filter bar in the
 Also make sure you define your own value help delegate `ui5con/vhdemo/delegate/ValueHelp.delegate`for all three filter fields, because we have to implement the relationship between them in the value help delegate.
 Add a payload to each value help delegate for each filter field. The payload can be an arbitrary json object which is used in our case to describe the dependency between the conditions of the filter fields, for example, that a selected `buildingRegion` should set the filter for the property `RegionId` of the country and location filter fields.
 
-**_valuehelp/webapp/view/Building.view.xml_**
+**_vhfacilities/webapp/view/Building.view.xml_**
 
 ```xml
 ...
@@ -145,7 +145,7 @@ Add a payload to each value help delegate for each filter field. The payload can
 
 Setting the filters for the filter fields suggestion lists has to be implemented in the `getFilterConditions` method of the value help delegate. Since we now define this with the help of the payload in the XML view, we don't have to hard code this behavior for regions, countries, and locations but we retrieve the payload data from the view and create the filters based on that data. This way, the value help delegate could also be used for other kinds of data.
 
-**_valuehelp/webapp/delegate/ValueHelp.delegate.js_**
+**_vhfacilities/webapp/delegate/ValueHelp.delegate.js_**
 
 ```javascript
 sap.ui.define(

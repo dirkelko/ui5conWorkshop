@@ -5,11 +5,10 @@ In this exercise you'll enhance the application with a type-ahead functionality 
 
 ## Exercise 2.1 - Add a value help tag to the view
 
-
 1. Open the ***Building.view.xml*** in the ***view*** folder of the project. We have to build the value help out of several UI5 controls from the new `sap.ui.mdc` library. 
 Add the namespaces needed for the value help and filter bar of the `sap.ui.mdc` library to the view. We use several namespaces for the library to keep the tags in the view short and clean. (The `sap.ui.mdc.table` and `sap.ui.mdc.filterbar.vh` will be used in a later chapter, but we can include it also now).
 
-***valuehelp/webapp/view/Building.view.xml***
+***vhfacilities/webapp/view/Building.view.xml***
 ```xml
 <mvc:View
 	controllerName="ui5con.vhdemo.controller.Building"
@@ -24,9 +23,9 @@ Add the namespaces needed for the value help and filter bar of the `sap.ui.mdc` 
 
 2. Now add a `ValueHelp` tag from the `sap.ui.mdc` library with a typeahead declaration to the `mdc.Field` and add the id of the value help to the `valueHelp="vhSelectBuilding"` property of the `mdc.Field`. 
 We also specify the path to a so-called **delegate** which provides central functionality for the value help. In this still simple scenario the base delegate provided by the `sap.ui.mdc` library is sufficient. Later we have to implement our own delegates for more complex scenarios. 
-The typeahead consists of a pop over control with the suggestion list of possible entries as a responsive table from the `sap.m` library. The `sap.ui.mdc` library contains value help specific wrapper controls. For example the `valuehelp.content.Table` control's property `filterFields` allows to specify which properties of the entity set will be used by the type-ahead search functionality. The columns and list items of the `sap.m.Table` are declared as usual.
+The typeahead consists of a pop over control with the suggestion list of possible entries as a responsive table from the `sap.m` library. The `sap.ui.mdc` library contains value help specific wrapper controls. For example the `sap.ui.mdc.valuehelp.content.Table` control's property `filterFields` allows to specify which properties of the entity set will be used by the type-ahead search functionality. The columns and list items of the `sap.m.Table` are declared as usual.
 
-***valuehelp/webapp/view/Building.view.xml***
+***vhfacilities/webapp/view/Building.view.xml***
 ```xml
 ...
 <mdc:Field 

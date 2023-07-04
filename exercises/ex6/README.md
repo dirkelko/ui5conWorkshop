@@ -41,6 +41,7 @@ Since we now also use the region data, we have to enhance the filter bar delegat
 Add a new filter field with a value help for the region to the filter bar in the `Building.view.xml`view.
 Also make sure you define your own value help delegate `ui5con/vhdemo/delegate/ValueHelp.delegate`for all three filter fields, because we have to implement the relationship between them in the value help delegate.
 Add a payload to each value help delegate for each filter field. The payload can be an arbitrary json object which is used in our case to describe the dependency between the conditions of the filter fields, for example, that a selected `buildingRegion` should set the filter for the property `RegionId` of the country and location filter fields.
+Make sute to set the `name`property of all three value helps to your own `ui5con/vhdemo/delegate/ValueHelp.delegate` because the payload handling will be done in your delegate.
 
 **_vhfacilities/webapp/view/Building.view.xml_**
 
@@ -54,7 +55,7 @@ Add a payload to each value help delegate for each filter field. The payload can
         <vhfb:filterItems>
             <mdc:FilterField id="ffRegion" label="Region" dataType= "String" display="Description" propertyKey="buildingRegion" conditions= "{$filters>/conditions/buildingRegion}" valueHelp= "vhRegion">
                 <mdc:dependents>
-                    <mdc:ValueHelp id="vhRegion" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}">
+                    <mark><mdc:ValueHelp id="vhRegion" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}"></mark>
                         <mdc:typeahead>
                             <mdcv:Popover title="Region Selection">
                                 <mdcvc:MTable id="regionTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">

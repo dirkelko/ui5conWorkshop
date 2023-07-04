@@ -146,45 +146,46 @@ Setting the filters for the filter fields suggestion lists has to be implemented
 **_vhfacilities/webapp/delegate/ValueHelp.delegate.js_**
 
 ```javascript
-sap.ui.define(
-  ["sap/ui/mdc/ValueHelpDelegate", "sap/ui/mdc/p13n/StateUtil"],
-  function (ValueHelpDelegate, StateUtil) {
-    "use strict";
+sap.ui.define([
+	"sap/ui/mdc/ValueHelpDelegate",
+	"sap/ui/mdc/p13n/StateUtil"
+], function(
+	ValueHelpDelegate,
+	StateUtil
+) {
+	"use strict";
 
-    var MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
+	let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
 
-    // called when ValueHelp for one of the three FilterFields is called
-    MyValueHelpDelegate.getFilterConditions = function (
-      oValueHelp,
-      oContent,
-      oConfig
-    ) {
-      var oConditions = ValueHelpDelegate.getFilterConditions(
-        oValueHelp,
-        oContent,
-        oConfig
-      );
-      var oFilterBar = oValueHelp.getParent().getParent();
+	MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
 
-      return StateUtil.retrieveExternalState(oFilterBar).then(function (
-        oState
-      ) {
-        var oFilter = oState.filter;
-        var oFilterConditions = oValueHelp.getPayload().filterConditions;
+		let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
+		let oFilterBar = oValueHelp.getParent().getParent();
+	
+		return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
+	
+			let oFilter = oState.filter;
 
-        oFilterConditions.forEach((filterCondition) => {
-          oConditions[filterCondition.condition] =
-            oFilter[filterCondition.filter];
-        });
+			let oFilterConditions = oValueHelp.getPayload().filterConditions;
 
-        return oConditions;
-      });
-    };
+			if(oFilter){
+				oFilterConditions.forEach(filterCondition => {
+					if (oFilter[filterCondition.filter]){
+						oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
+					}
+				});
+			}
+	
+			return oConditions;
+		});
+	
+	};			
 
-    return MyValueHelpDelegate;
-  }
-);
-```
+	return MyValueHelpDelegate;
+
+}
+
+);```
 
 
 

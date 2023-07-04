@@ -1,9 +1,9 @@
 <mvc:View
 	controllerName="ui5con.vhdemo.controller.Building"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns:mdc="sap.ui.mdc"
-    xmlns:mdct="sap.ui.mdc.table"
     xmlns="sap.m"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdct="sap.ui.mdc.table"
     xmlns:mdcv="sap.ui.mdc.valuehelp"
     xmlns:mdcvc="sap.ui.mdc.valuehelp.content"
     xmlns:vhfb="sap.ui.mdc.filterbar.vh">

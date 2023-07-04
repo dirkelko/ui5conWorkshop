@@ -1,8 +1,9 @@
 <mvc:View
 	controllerName="ui5con.vhdemo.controller.Building"
-    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
 	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdct="sap.ui.mdc.table"
     xmlns:mdcv="sap.ui.mdc.valuehelp"
     xmlns:mdcvc="sap.ui.mdc.valuehelp.content"
     xmlns:vhfb="sap.ui.mdc.filterbar.vh">
@@ -24,7 +25,10 @@
                         delegate="{name: 'sap/ui/mdc/ValueHelpDelegate', payload: {}}"> 
                         <mdc:typeahead>
                             <mdcv:Popover title="Select Building">
-                                <mdcvc:MTable keyPath="id" descriptionPath="name" filterFields="*name,city*">
+                                <mdcvc:MTable 
+                                    keyPath="id" 
+                                    descriptionPath="name" 
+                                    filterFields="*name,city*">
                                     <Table  id="ddListBuildings"
                                             items='{path : "facilities>/buildings" }' 
                                             width="30rem" 

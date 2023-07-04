@@ -1,8 +1,8 @@
 <mvc:View
 	controllerName="ui5con.vhdemo.controller.Building"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns:mdc="sap.ui.mdc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:mdc="sap.ui.mdc">
 
     <Page id="page" title="{i18n>appTitle}">
         <content>
@@ -10,7 +10,6 @@
             <mdc:Field 
                 id="fieldSelectBuilding" 
                 value="{path: 'id', type: 'sap.ui.model.type.String', mode: 'OneWay'}"
-                valueHelp="FH1" 
                 display="Description" 
                 editMode="Editable" 
                 width="20rem"

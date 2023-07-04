@@ -39,24 +39,24 @@ In addition to the type-ahead functionality we want to have a more complex dialo
                             threshold="50"
                             enableAutoColumnWidth="true">
                             <mdc:columns>
-                                <mdc:table.Column id="cnBuildingId" header="ID" propertyKey="buildingId" width="10%">
+                                <mdct:Column id="cnBuildingId" header="ID" propertyKey="buildingId" width="10%">
                                     <Text text="{facilities>id}"/>
-                                </mdc:table.Column> 
-                                <mdc:table.Column id="cnBuildingName" header="Building Name" propertyKey="buildingName" width="40%">
+                                </mdct:Column> 
+                                <mdct:Column id="cnBuildingName" header="Building Name" propertyKey="buildingName" width="40%">
                                     <Text text="{facilities>name}"/>
-                                </mdc:table.Column>
-                                <mdc:table.Column id="cnBuildingLocation" header="Location" propertyKey="buildingLocation" width="10%">
+                                </mdct:Column>
+                                <mdct:Column id="cnBuildingLocation" header="Location" propertyKey="buildingLocation" width="10%">
                                     <Text text="{path: 'facilities>locationId', formatter: '.onGetLocationName'}"/>
-                                </mdc:table.Column>
-                                    <mdc:table.Column id="cnBuildingCountry" header="Country" propertyKey="buildingCountry" width="25%">
+                                </mdct:Column>
+                                    <mdct:Column id="cnBuildingCountry" header="Country" propertyKey="buildingCountry" width="25%">
                                     <Text text="{path: 'facilities>countryId', formatter: '.onGetCountryName'}"/>
-                                </mdc:table.Column>
-                                    <mdc:table.Column id="cnBuildingRegion" header="Region" propertyKey="buildingRegion" width="15%">
+                                </mdct:Column>
+                                    <mdct:Column id="cnBuildingRegion" header="Region" propertyKey="buildingRegion" width="15%">
                                     <Text text="{facilities>regionId}"/>
-                                </mdc:table.Column>
+                                </mdct:Column>
                             </mdc:columns>
                             <mdc:type>
-                                <mdc:table.GridTableType rowCountMode="Auto"/>
+                                <mdct:GridTableType rowCountMode="Auto"/>
                             </mdc:type>
                         </mdc:Table>
                     </mdcvc:MDCTable>

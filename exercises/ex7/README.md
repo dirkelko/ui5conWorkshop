@@ -86,6 +86,6 @@ Run the app in the brwoser and check that selecting a location directly adds the
 
 ## Summary
 
-You've successfully accomplished [Exercise 5 - Define filter fields which depend on each other](#exercise-5---define-filter-fields-which-depend-on-each-other)
+You've successfully accomplished [Exercise 7 - Define filter fields which depend on each other - Out Parameters](#exercise-7---define-filter-fields-which-depend-on-each-other---out-parameters)
 
-Continue to [Exercise 6 - Further enhance the value help dialog](../ex6/README.md).
+Continue to [Exercise 8 - Implementing custom content for the value help dialog](../ex8/README.md).

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "none",
+    "lib":["ES2020","DOM"],
+    "noEmit": true,
+    "checkJs": true,
+    "allowJs": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@openui5/ts-types-esm"
+    ]
+  }
+}

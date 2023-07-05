@@ -1,6 +1,6 @@
-# Exercise 5 - Define filter fields which depend on each other
+# Exercise 5 - Define filter fields which depend on each other - In Parameters
 
-Even with the filter field for countries the list of buildings can still be pretty large, e.g. if we select Germany. Therefore we want to be able to select also the location with a second filter field. The list of available locations should be dependent of the selected countries, of course. We can define this behavior by implementing the corresponding methods in our filter bar delegate.
+Even with the filter field for countries the list of buildings can still be pretty large, e.g. if we select Germany. Therefore we want to be able to select also the location with a second filter field. The list of available locations should be dependent of the selected countries, of course. We can define this behavior by implementing the corresponding methods in our filter bar delegate by so called in-parameters.
 
 ## Exercise 5.1 - Add a second filter field to the filter bar for selecting locations
 
@@ -133,7 +133,7 @@ Since we now also use the country data, we have to enhance the filter bar delega
 
 Create a new file ***ValueHelp.delegate.js*** in the ***delegate*** folder of your project and implement the ``getFilterCondition``method, that applies the filter setting of the country filter field to the locations suggestion list so that only locations of the selected countries are displayed.
 
-In this method we check that the currently used control is the filter field for the location. If this is the case we get the filter conditions of all other filters. In our case we retrieve the IDs (or technically the conditions containing ` "countryId" "EQ" "..." ` ) of the countries which have been selected in the country filter field. Based on these conditions we create a filter condition for the location's `countryId` property, which is applied to the suggestion list, narrowing down the list of locations to the selected countries.
+In this method we check that the currently used control is the filter field for the location. If this is the case we get the filter conditions of all other filters. In our case we retrieve the IDs (or technically the conditions containing ` "countryId" "EQ" "..." ` ) of the countries which have been selected in the country filter field as in-parameters. Based on these conditions we create a filter condition for the location's `countryId` property, which is applied to the suggestion list, narrowing down the list of locations to the selected countries.
 
 ***vhfacilities/webapp/delegate/ValueHelp.delegate.js***
 
@@ -174,6 +174,8 @@ Run the app in the brwoser and check that the selectable locations depend on the
 
 ## Summary
 
-You've successfully accomplished [Exercise 5 - Define filter fields which depend on each other](#exercise-5---define-filter-fields-which-depend-on-each-other)
+You've successfully accomplished [Exercise 5 - Define filter fields which depend on each other](#exercise-5---define-filter-fields-which-depend-on-each-other---in-parameters)
 
 Continue to [Exercise 6 - Further enhance the value help dialog](../ex6/README.md).
+
+There's also an option for the more exotic case of out-parameters in [Exercise 7 - Define filter fields which depend on each other - Out Parameters](../ex7/README.md).

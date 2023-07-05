@@ -1,0 +1,25 @@
+{
+  "name": "vhdemo",
+  "version": "1.0.0",
+  "description": "UI5 Application: vhdemo",
+  "author": "Dirk Feeken",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "ui5 build --clean-dest",
+    "build:opt": "ui5 build self-contained --clean-dest --all",
+    "start": "ui5 serve --port 8080 -o index.html",
+    "start:dist": "ui5 serve  --port 8080 -o index.html --config ui5-dist.yaml",
+    "lint": "eslint webapp"
+  },
+  "devDependencies": {
+    "@openui5/ts-types-esm": "1.115.1",
+    "@ui5/cli": "^3.3.1",
+    "eslint": "^8.44.0",
+    "ui5-middleware-livereload": "^0.8.3"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-livereload"
+    ]
+  }
+}

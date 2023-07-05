@@ -107,4 +107,4 @@ Run the example and check how the selection of one or more countries filters the
 
 You've successfully accomplished [Exercise 4 - Adding a filter field to the value help dialog](#exercise-3---adding-a-filter-field-to-the-value-help-dialog)
 
-Continue to [Exercise 5 - Define filter fields which depend on each other](../ex5/README.md).
+Continue to [Exercise 5 - Define filter fields which depend on each other - In Parameters](../ex5/README.md).

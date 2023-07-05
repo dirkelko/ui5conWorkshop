@@ -81,7 +81,7 @@ Implementing out-parameters for filter fields is more complex. We hava to implem
 ...
 ```
 
-Run the app in the brwoser and check that the selectable locations depend on the formerly selected countries.
+Run the app in the brwoser and check that selecting a location directly adds the correct country to the country filter field.
 
 
 ## Summary

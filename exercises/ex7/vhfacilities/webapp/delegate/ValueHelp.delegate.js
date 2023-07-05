@@ -8,7 +8,7 @@ sap.ui.define([
 	"sap/ui/mdc/ValueHelpDelegate",
 	"sap/ui/mdc/p13n/StateUtil",
 	"sap/ui/core/Core",
-	"sap/ui/mdc/condition/Condition",	
+	"sap/ui/mdc/condition/Condition",
 	'sap/ui/mdc/enum/ConditionValidated'
 ], function (
 	ValueHelpDelegate,
@@ -43,9 +43,9 @@ sap.ui.define([
 
 	function _addContext(oContext, sProperty, oStore) {
 		var vProp = oContext.getProperty(sProperty);
-			if (vProp) {
-				oStore[sProperty] = vProp;
-			}
+		if (vProp) {
+			oStore[sProperty] = vProp;
+		}
 	}
 
 	MyValueHelpDelegate.createConditionPayload = function (oValueHelp, oContent, aValues, oContext) {
@@ -53,7 +53,7 @@ sap.ui.define([
 		var oConditionPayload = {};
 		oConditionPayload[sIdentifier] = [];
 
-		if (oContent.sId.endsWith("locationTypeAhead")){
+		if (oContent.sId.endsWith("locationTypeAhead")) {
 			if (oContext) {
 				var oEntry = {};
 				_addContext(oContext, "countryId", oEntry);
@@ -68,46 +68,45 @@ sap.ui.define([
 	MyValueHelpDelegate.onConditionPropagation = function (oValueHelp, sReason, oConfig) {
 		var oControl = oValueHelp.getControl();
 
-			if (sReason !== "ControlChange") {
-				return;
-			}
+		if (sReason !== "ControlChange") {
+			return;
+		}
 
-			// find all conditions carrying country information
-			var aAllConditionCountrys = oControl && oControl.getConditions().reduce(function (aResult, oCondition) {
-				if (oCondition.payload) {
-					Object.values(oCondition.payload).forEach(function (aSegments) {
-						aSegments.forEach(function (oSegment) {
-							if (oSegment["countryId"] && aResult.indexOf(oSegment["countryId"]) === -1) {
-								aResult.push(oSegment["countryId"]);
-							}
-						});
-					});
-				}
-				return aResult;
-			}, []);
-
-			if (aAllConditionCountrys && aAllConditionCountrys.length) {
-				var oFilterBar = oControl.getParent();
-				//var oFilterBar = Core.byId("FB0");
-				StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
-					var bModify = false;
-					aAllConditionCountrys.forEach(function(sCountry) {
-						var bExists = oState.filter && oState.filter['buildingCountry'] && oState.filter['buildingCountry'].find(function (oCondition) {
-							return oCondition.values[0] === sCountry;
-						});
-						if (!bExists) {
-							var oNewCondition = Condition.createCondition("EQ", [sCountry], undefined, undefined, ConditionValidated.Validated);
-							oState.filter['buildingCountry'] = oState.filter && oState.filter['buildingCountry'] || [];
-							oState.filter['buildingCountry'].push(oNewCondition);
-							bModify = true;
+		// find all conditions carrying country information
+		var aAllConditionCountrys = oControl && oControl.getConditions().reduce(function (aResult, oCondition) {
+			if (oCondition.payload) {
+				Object.values(oCondition.payload).forEach(function (aSegments) {
+					aSegments.forEach(function (oSegment) {
+						if (oSegment["countryId"] && aResult.indexOf(oSegment["countryId"]) === -1) {
+							aResult.push(oSegment["countryId"]);
 						}
 					});
-
-					if (bModify) {
-						StateUtil.applyExternalState(oFilterBar, oState);
-					}
 				});
 			}
+			return aResult;
+		}, []);
+
+		if (aAllConditionCountrys && aAllConditionCountrys.length) {
+			var oFilterBar = oControl.getParent();
+			StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
+				var bModify = false;
+				aAllConditionCountrys.forEach(function (sCountry) {
+					var bExists = oState.filter && oState.filter['buildingCountry'] && oState.filter['buildingCountry'].find(function (oCondition) {
+						return oCondition.values[0] === sCountry;
+					});
+					if (!bExists) {
+						var oNewCondition = Condition.createCondition("EQ", [sCountry], undefined, undefined, ConditionValidated.Validated);
+						oState.filter['buildingCountry'] = oState.filter && oState.filter['buildingCountry'] || [];
+						oState.filter['buildingCountry'].push(oNewCondition);
+						bModify = true;
+					}
+				});
+
+				if (bModify) {
+					StateUtil.applyExternalState(oFilterBar, oState);
+				}
+			});
+		}
 	};
 
 

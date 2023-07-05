@@ -85,7 +85,6 @@ sap.ui.define([
 
 	var MyTableDelegate = Object.assign({}, TableDelegate);
 
-	// this is the stuff which would be steered by annotiations in OData scenarios
 	MyTableDelegate.fetchProperties = function (oTable) {
 
 		return Promise.resolve([{

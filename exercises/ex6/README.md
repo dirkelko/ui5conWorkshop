@@ -189,33 +189,32 @@ Setting the filters for the filter fields suggestion lists has to be implemented
 **_vhfacilities/webapp/delegate/ValueHelp.delegate.js_**
 
 ```javascript
-
 sap.ui.define([
-	"sap/ui/mdc/ValueHelpDelegate",
-	"sap/ui/mdc/p13n/StateUtil"
-], function(
-	ValueHelpDelegate,
-	StateUtil
+    "sap/ui/mdc/ValueHelpDelegate",
+    "sap/ui/mdc/p13n/StateUtil"
+], function (
+    ValueHelpDelegate,
+    StateUtil
 ) {
-	"use strict";
-	let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
+    "use strict";
+    let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
 
-	MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
-    	let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
-		let oFilterBar = oValueHelp.getParent().getParent();
-	
-		return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
-			let oFilter = oState.filter;
-			let oFilterConditions = oValueHelp.getPayload().filterConditions;
+    MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
+        let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
+        let oFilterBar = oValueHelp.getParent().getParent();
+
+        return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
+            let oFilter = oState.filter;
+            let oFilterConditions = oValueHelp.getPayload().filterConditions;
             oFilterConditions.forEach(filterCondition => {
-                if (oFilter[filterCondition.filter]){
+                if (oFilter[filterCondition.filter]) {
                     oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
                 }
             });
-			return oConditions;
-		});
-	};			
-	return MyValueHelpDelegate;
+            return oConditions;
+        });
+    };
+    return MyValueHelpDelegate;
 
 }
 

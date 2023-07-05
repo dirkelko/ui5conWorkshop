@@ -32,7 +32,6 @@ In addition to the type-ahead functionality we want to have a more complex dialo
                         <mdc:Table id="mdcTableBuildings"
                             autoBindOnInit="true"
                             width="100%"
-                            height="100%"
                             p13nMode="Sort"
                             selectionMode="SingleMaster"
                             delegate="{name: 'ui5con/vhdemo/delegate/Table.delegate', payload: {collectionPath: 'facilities>/buildings'}}"
@@ -106,7 +105,6 @@ sap.ui.define([
 			label : "Location",
 			dataType : "sap.ui.model.type.String",
 			sortable : true,
-			groupable: true
 		},{
 			name : "buildingCountry",
 			path : "countryId",

@@ -48,18 +48,35 @@ Make sure to set the `name` of the `delegate` property of all three `mdc.ValueHe
 ```xml
 ...
 <mdcvc:filterBar>
-    <vhfb:FilterBar
-        id="fbSelectBuildingDialog"
-        liveMode="true"
+    <vhfb:FilterBar 
+        id="FH1-Dialog-MDCTable-default-FB" 
+        liveMode="true" 
         delegate="{name: 'ui5con/vhdemo/delegate/FilterBar.delegate', payload: {}}" >
         <vhfb:filterItems>
-            <mdc:FilterField id="ffRegion" label="Region" dataType= "String" display="Description" propertyKey="buildingRegion" conditions= "{$filters>/conditions/buildingRegion}" valueHelp= "vhRegion">
+            <mdc:FilterField 
+                id="ffRegion" 
+                label="Region" 
+                dataType= "String" 
+                display="Description" 
+                propertyKey="buildingRegion" 
+                conditions= "{$filters>/conditions/buildingRegion}" 
+                valueHelp= "vhRegion">
                 <mdc:dependents>
-                    <mdc:ValueHelp id="vhRegion" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}">
+                    <mdc:ValueHelp 
+                        id="vhRegion" 
+                        delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[]}}">
                         <mdc:typeahead>
                             <mdcv:Popover title="Region Selection">
-                                <mdcvc:MTable id="regionTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">
-                                    <Table id="ddListRegions" items='{path : "facilities>/regions" }' width="20rem" mode="SingleSelectMaster">
+                                <mdcvc:MTable 
+                                    id="regionTypeAhead" 
+                                    keyPath="id" 
+                                    descriptionPath="name" 
+                                    filterFields="*id,name*">
+                                    <Table 
+                                        id="ddListRegions" 
+                                        items='{path : "facilities>/regions" }' 
+                                        width="20rem" 
+                                        mode="SingleSelectMaster">
                                         <columns>
                                             <Column/>
                                             <Column/>
@@ -75,19 +92,32 @@ Make sure to set the `name` of the `delegate` property of all three `mdc.ValueHe
                                     </Table>
                                 </mdcvc:MTable>
                             </mdcv:Popover>
-                        </mdc:typeahead>
+                        </mdc:typeahead>                                                        
                     </mdc:ValueHelp>
                 </mdc:dependents>
             </mdc:FilterField>
-            <mdc:FilterField id="ffCountry" label="Country" dataType= "String" display="Description" propertyKey="buildingCountry" conditions= "{$filters>/conditions/buildingCountry}" valueHelp= "vhCountry">
+            <mdc:FilterField 
+                id="ffCountry" 
+                label="Country" 
+                dataType= "String" 
+                display="Description" 
+                propertyKey="buildingCountry" 
+                conditions= "{$filters>/conditions/buildingCountry}" 
+                valueHelp= "vhCountry">
                 <mdc:dependents>
-                    <mdc:ValueHelp id="vhCountry" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[{condition:'regionId', filter:'buildingRegion'}]}}">
+                    <mdc:ValueHelp 
+                        id="vhCountry" 
+                        delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[{condition:'regionId', filter:'buildingRegion'}]}}">
                         <mdc:typeahead>
                             <mdcv:Popover title="Country Selection">
-                                <mdcvc:MTable id="countryTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">
-                                    <Table  id="ddListCountries"
-                                            items='{path : "facilities>/countries", sorter: { path: "name", ascending: "true" }  }'
-                                            width="20rem"
+                                <mdcvc:MTable 
+                                    id="countryTypeAhead" 
+                                    keyPath="id" 
+                                    descriptionPath="name" 
+                                    filterFields="*id,name*">
+                                    <Table  id="ddListCountries" 
+                                            items='{path : "facilities>/countries", sorter: { path: "name", ascending: "true" }  }' 
+                                            width="20rem" 
                                             mode="MultiSelect">
                                         <columns>
                                             <Column/>
@@ -102,19 +132,32 @@ Make sure to set the `name` of the `delegate` property of all three `mdc.ValueHe
                                     </Table>
                                 </mdcvc:MTable>
                             </mdcv:Popover>
-                        </mdc:typeahead>
+                        </mdc:typeahead>                                                        
                     </mdc:ValueHelp>
                 </mdc:dependents>
             </mdc:FilterField>
-            <mdc:FilterField id="ffLocation" label="Location" dataType= "String" display="Description" propertyKey="buildingLocation" conditions="{$filters>/conditions/buildingLocation}" valueHelp="vhLocation">
+            <mdc:FilterField 
+                id="ffLocation" 
+                label="Location" 
+                dataType= "String" 
+                display="Description" 
+                propertyKey="buildingLocation" 
+                conditions="{$filters>/conditions/buildingLocation}" 
+                valueHelp="vhLocation">
                 <mdc:dependents>
-                    <mdc:ValueHelp id="vhLocation" delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[{condition:'regionId', filter:'buildingRegion'},{condition:'countryId', filter:'buildingCountry'}]}}">
+                    <mdc:ValueHelp 
+                        id="vhLocation" 
+                        delegate="{name: 'ui5con/vhdemo/delegate/ValueHelp.delegate', payload: {filterConditions:[{condition:'regionId', filter:'buildingRegion'},{condition:'countryId', filter:'buildingCountry'}]}}">
                         <mdc:typeahead>
                             <mdcv:Popover title="Location Selection">
-                                <mdcvc:MTable id="locationTypeAhead" keyPath="id" descriptionPath="name" filterFields="*id,name*">
-                                    <Table  id="taTableLocation"
-                                            items='{path : "facilities>/locations", sorter: { path: "name", ascending: "true" }  }'
-                                            width="20rem"
+                                <mdcvc:MTable 
+                                    id="locationTypeAhead" 
+                                    keyPath="id" 
+                                    descriptionPath="name" 
+                                    filterFields="*id,name*">
+                                    <Table  id="taTableLocation" 
+                                            items='{path : "facilities>/locations", sorter: { path: "name", ascending: "true" }  }' 
+                                            width="20rem" 
                                             mode="MultiSelect">
                                         <columns>
                                             <Column/>
@@ -129,7 +172,7 @@ Make sure to set the `name` of the `delegate` property of all three `mdc.ValueHe
                                     </Table>
                                 </mdcvc:MTable>
                             </mdcv:Popover>
-                        </mdc:typeahead>
+                        </mdc:typeahead>                                                        
                     </mdc:ValueHelp>
                 </mdc:dependents>
             </mdc:FilterField>

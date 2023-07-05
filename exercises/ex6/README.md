@@ -198,33 +198,23 @@ sap.ui.define([
 	StateUtil
 ) {
 	"use strict";
-
 	let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
 
 	MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
-
-		let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
+    	let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
 		let oFilterBar = oValueHelp.getParent().getParent();
 	
 		return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
-	
 			let oFilter = oState.filter;
-
 			let oFilterConditions = oValueHelp.getPayload().filterConditions;
-
-			if(oFilter){
-				oFilterConditions.forEach(filterCondition => {
-					if (oFilter[filterCondition.filter]){
-						oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
-					}
-				});
-			}
-	
+            oFilterConditions.forEach(filterCondition => {
+                if (oFilter[filterCondition.filter]){
+                    oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
+                }
+            });
 			return oConditions;
 		});
-	
 	};			
-
 	return MyValueHelpDelegate;
 
 }

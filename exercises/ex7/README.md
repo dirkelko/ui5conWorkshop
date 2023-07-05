@@ -4,7 +4,7 @@ Another functionality which can be implemented by value help delegates is to pro
 
 ## Exercise 7.1 - Add the logic in the value help delegate to add a filter condition to the country filter field
 
-Implementing out-parameters for filter fields is more complex. We hava to implement the functions `createConditionPayload` and `onConditionPropagation` to first create the filter items for the country filter field based on the country of the selected location. 
+Implementing out-parameters for filter fields is more complex. We hava to implement the functions `createConditionPayload` and `onConditionPropagation` to create the filter items based on the country of the selected location and then apply this condition to the country filter field. 
 
 ***vhfacilities/webapp/delegate/ValueHelp.delegate.js***
 

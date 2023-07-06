@@ -26,11 +26,8 @@
                         delegate="{name: 'sap/ui/mdc/ValueHelpDelegate', payload: {}}"> 
                         <mdc:typeahead>
                             <mdcv:Popover title="Select Building">
-                                <mdcvc:MTable 
-                                    keyPath="id" 
-                                    descriptionPath="name" 
-                                    filterFields="*name,city*">
-                                    <Table  id="listBuildings" 
+                                <mdcvc:MTable keyPath="id" descriptionPath="name" filterFields="*name,city*">
+                                    <Table  id="ddListBuildings" 
                                             items='{path : "facilities>/buildings" }' 
                                             width="30rem" 
                                             mode="SingleSelectMaster">

@@ -6,34 +6,39 @@
 
 sap.ui.define([
 	"sap/ui/mdc/ValueHelpDelegate",
-	"sap/ui/mdc/p13n/StateUtil"
+	"sap/ui/mdc/p13n/StateUtil",
+	"sap/ui/core/Core",
+	"sap/ui/mdc/condition/Condition",	
+	'sap/ui/mdc/enum/ConditionValidated'
 ], function(
 	ValueHelpDelegate,
-	StateUtil
+	StateUtil,
+	Core,
+	Condition,
+	ConditionValidated
 ) {
 	"use strict";
 
-	let MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
+	var MyValueHelpDelegate = Object.assign({}, ValueHelpDelegate);
 
+	// called when ValueHelp for one of the three FilterFields is called
 	MyValueHelpDelegate.getFilterConditions = function (oValueHelp, oContent, oConfig) {
 
-		let oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
+		var oConditions = ValueHelpDelegate.getFilterConditions(oValueHelp, oContent, oConfig);
 		
-		let oFilterBar = oValueHelp.getParent().getParent();
+		//var oActiveControl = oConfig && oConfig.control || oContent.getControl();
+        //var oFilterBar = oActiveControl && oActiveControl.getParent();
+		var oFilterBar = oValueHelp.getParent().getParent();
 	
 		return StateUtil.retrieveExternalState(oFilterBar).then(function (oState) {
 	
-			let oFilter = oState.filter;
+			var oFilter = oState.filter;
 
-			let oFilterConditions = oValueHelp.getPayload().filterConditions;
+			var oFilterConditions = oValueHelp.getPayload().filterConditions;
 
-			if(oFilter){
-				oFilterConditions.forEach(filterCondition => {
-					if (oFilter[filterCondition.filter]){
-						oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
-					}
-				});
-			}
+			oFilterConditions.forEach(filterCondition => {
+				oConditions[filterCondition.condition] = oFilter[filterCondition.filter];
+			});
 	
 			/*
 			if (oContent.getControl().sId.endsWith("ffLocation")){

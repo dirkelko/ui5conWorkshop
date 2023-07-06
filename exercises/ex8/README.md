@@ -22,7 +22,7 @@ npm i -D ui5-tooling-modules ui5-middleware-servestatic
 },
 "ui5": {
     "dependencies": [
-      "ui5-middleware-livereload",
+      "ui5-middleware-livereload"
       "ui5-tooling-modules",
       "ui5-middleware-servestatic"
     ]
@@ -83,7 +83,7 @@ sap.ui.define([
 			metadata: {
 				properties: {
 					htmlElements: {
-						type: "object[]",
+						type: "object",
 						defaultValue: [],
 					}
 				},
@@ -173,13 +173,33 @@ sap.ui.define([
 		return Globe;
 	});
 ```
+You may now test your control by temporarily placing it in the XML view: 
 
-## Exercise 8.3 - Create a ValueHelp content wrapper
+***vhfacilities/webapp/view/Building.view.xml***
+
+
+```javascript
+<mvc:View
+    controllerName="ui5con.vhdemo.controller.Building"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:vhdemo="ui5con.vhdemo">
+    <Page id="page" title="{i18n>appTitle}">
+        <content>
+            <vhdemo:controls.Globe htmlElements='[\{"lng": 8.64392, "lat": 49.292717, "color": "white", "size": 20, "context": \{"id": "WDF03","name": "WDF03-BAC"\}\}]'/>
+        </content>   
+    </Page>
+</mvc:View>
+
+
+```
+
+## Exercise 8.4 - Create a ValueHelp content wrapper
 
 This control will be the bridge between the ValueHelp and our new Globe control.
 It manages the content to be displayed and handles data updates in both directions (ValueHelp to Globe and vice versa)
 
-***vhfacilities//webapp/controls/valuehelp/GlobeContent.js***
+***vhfacilities/webapp/controls/valuehelp/GlobeContent.js***
 
 
 ```javascript
@@ -197,7 +217,7 @@ sap.ui.define([
 			metadata: {
 				properties: {
 					htmlElements: {
-						type: "object[]",
+						type: "object",
 						defaultValue: [],
 						bindable: true
 					},

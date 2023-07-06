@@ -12,7 +12,7 @@ sap.ui.define([
 			metadata: {
 				properties: {
 					htmlElements: {
-						type: "object[]",
+						type: "object",
 						defaultValue: [],
 						bindable: true
 					},

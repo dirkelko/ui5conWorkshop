@@ -1,0 +1,12 @@
+<mvc:View
+	controllerName="ui5con.vhdemo.controller.Building"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:vhdemo="ui5con.vhdemo">
+
+    <Page id="page" title="{i18n>appTitle}">
+        <content>
+            <vhdemo:controls.Globe htmlElements='[\{"lng": 8.64392, "lat": 49.292717, "color": "white", "size": 20, "context": \{"id": "WDF03","name": "WDF03-BAC"\}\}]'/>
+        </content>   
+    </Page>
+</mvc:View>

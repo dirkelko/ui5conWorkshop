@@ -41,13 +41,6 @@ sap.ui.define([
 
 	};
 
-	function _addContext(oContext, sProperty, oStore) {
-		var vProp = oContext.getProperty(sProperty);
-		if (vProp) {
-			oStore[sProperty] = vProp;
-		}
-	}
-
 	MyValueHelpDelegate.createConditionPayload = function (oValueHelp, oContent, aValues, oContext) {
 		var sIdentifier = oContent.getId();
 		var oConditionPayload = {};
@@ -55,11 +48,7 @@ sap.ui.define([
 
 		if (oContent.sId.endsWith("locationTypeAhead")) {
 			if (oContext) {
-				var oEntry = {};
-				_addContext(oContext, "countryId", oEntry);
-				if (Object.keys(oEntry).length) {
-					oConditionPayload[sIdentifier].push(oEntry);
-				}
+				oConditionPayload[sIdentifier].push({countryId: oContext.getProperty("countryId")})
 			}
 		}
 		return oConditionPayload;

@@ -10,13 +10,6 @@ Implementing out-parameters for filter fields is more complex. We hava to implem
 
 ```javascript
 ...
-	function _addContext(oContext, sProperty, oStore) {
-		var vProp = oContext.getProperty(sProperty);
-		if (vProp) {
-			oStore[sProperty] = vProp;
-		}
-	}
-
 	MyValueHelpDelegate.createConditionPayload = function (oValueHelp, oContent, aValues, oContext) {
 		var sIdentifier = oContent.getId();
 		var oConditionPayload = {};
@@ -24,11 +17,7 @@ Implementing out-parameters for filter fields is more complex. We hava to implem
 
 		if (oContent.sId.endsWith("locationTypeAhead")) {
 			if (oContext) {
-				var oEntry = {};
-				_addContext(oContext, "countryId", oEntry);
-				if (Object.keys(oEntry).length) {
-					oConditionPayload[sIdentifier].push(oEntry);
-				}
+				oConditionPayload[sIdentifier].push({countryId: oContext.getProperty("countryId")})
 			}
 		}
 		return oConditionPayload;
@@ -76,7 +65,6 @@ Implementing out-parameters for filter fields is more complex. We hava to implem
 				}
 			});
 		}
-	};
 
 ...
 ```
